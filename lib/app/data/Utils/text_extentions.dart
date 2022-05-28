@@ -22,6 +22,22 @@ extension ExtendedString on String {
               fontSize: fontSize,
               fontWeight: fontWeight,
               fontFamily: strFontFamily));
+  Text f14w4(
+          {Color? textColor = KColors.persistentBlack,
+          TextAlign? textAlign = TextAlign.start,
+          int? maxLines,
+          FontWeight? fontWeight,
+          double? fontSize,
+          TextOverflow? overflow}) =>
+      Text(this,
+          textAlign: textAlign,
+          maxLines: maxLines,
+          overflow: overflow,
+          style: KTextStyle.f14w4.copyWith(
+              color: textColor,
+              fontSize: fontSize,
+              fontWeight: fontWeight,
+              fontFamily: strFontFamily));
 
   Text f24w5(
           {Color? textColor = KColors.persistentBlack,

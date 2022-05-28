@@ -15,3 +15,11 @@ const errorSomethingWentWrong = "Something went wrong!!!";
 const errorEnterOtp = "Enter 6 digit OTP";
 const errorEnterValidOtp = "Enter valid OTP";
 const errorConfirmPass = "Password don't match";
+const errorEnterDescription = "Enter Description";
+const errorEnterTitle = "Enter Title";
+const errorEnterCategory = "Enter Category";
+const errorMinDescription = "Description Must be 10 words";
+
+//App Strings
+const THEME = 'theme';
+const ANNOTATIONS = 'annotations';

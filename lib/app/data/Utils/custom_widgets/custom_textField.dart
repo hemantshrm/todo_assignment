@@ -3,65 +3,82 @@ import 'package:flutter/services.dart';
 import 'package:todo_assignment/app/data/Constants/colors_constants.dart';
 import 'package:todo_assignment/app/data/Constants/textStyle_constants.dart';
 
-class CustomFormField extends StatelessWidget {
-  const CustomFormField(
+class CustomTextField extends StatelessWidget {
+  final Function(String value)? onSaved;
+  final Function(String value)? onChanged;
+  final Function(String value)? validator;
+  final bool? emailCheck;
+  final String? labelText;
+  final Widget? sufixIcon;
+  final Widget? prefixIcon;
+  final TextInputAction? action;
+  final TextInputType? type;
+  final bool obscure;
+  final TextEditingController? controller;
+  final TextDirection? direction;
+  final int? max;
+  final List<TextInputFormatter>? formatter;
+  final int? maxLines;
+  final String? initialValue;
+  final String? hintText;
+  final TextCapitalization? textCapitalization;
+  const CustomTextField(
       {Key? key,
-      required this.controller,
-      this.inputType = TextInputType.text,
-      this.label,
-      this.maxLength = 18,
-      this.readOnly = false,
-      this.isObscureText = false,
+      this.maxLines = 1,
+      this.initialValue,
+      this.emailCheck,
+      this.labelText,
+      this.formatter,
+      this.onChanged,
+      this.onSaved,
       this.validator,
-      this.onTapAction,
-      this.inputFormator,
-      this.trailing,
-      this.autovalidateMode = AutovalidateMode.onUserInteraction})
+      this.sufixIcon,
+      this.action,
+      this.type,
+      this.obscure = false,
+      this.controller,
+      this.direction = TextDirection.ltr,
+      this.max,
+      this.prefixIcon,
+      this.hintText,
+      this.textCapitalization})
       : super(key: key);
-
-  final TextEditingController controller;
-  final TextInputType? inputType;
-  final String? label;
-  final bool readOnly, isObscureText;
-  final Widget? trailing;
-  final int? maxLength;
-  final List<TextInputFormatter>? inputFormator;
-  final AutovalidateMode? autovalidateMode;
-  final VoidCallback? onTapAction;
-  final String? Function(String?)? validator;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-        cursorColor: KColors.red,
-        cursorHeight: 20,
-        onTap: onTapAction,
-        keyboardType: inputType!,
-        obscureText: isObscureText,
-        controller: controller,
-        maxLines: 1,
-        readOnly: readOnly,
-        inputFormatters: inputFormator,
-        validator: validator,
-        style: KTextStyle.f18w6.copyWith(color: KColors.red),
-        maxLength: maxLength!,
-        decoration: InputDecoration(
-            suffixIconConstraints: const BoxConstraints(
-              minWidth: 10,
-              minHeight: 10,
-            ),
-            counterText: '',
-            suffixIcon: trailing,
-            suffixIconColor: KColors.red,
-            hintText: label,
-            isDense: true,
-            hintStyle:
-                KTextStyle.f14w4.copyWith(color: const Color(0xff90A4AE)),
-            enabledBorder: const UnderlineInputBorder(
-                borderSide: BorderSide(color: Colors.white)),
-            border: const UnderlineInputBorder(
-                borderSide: BorderSide(color: Colors.white)),
-            focusedBorder: const UnderlineInputBorder(
-                borderSide: BorderSide(color: KColors.red))));
+      inputFormatters: formatter,
+      maxLines: maxLines,
+      initialValue: initialValue,
+      maxLength: max,
+      textDirection: direction,
+      controller: controller,
+      obscureText: obscure,
+      style: KTextStyle.f18w6.copyWith(color: KColors.white),
+      keyboardType: type,
+      textCapitalization: textCapitalization ?? TextCapitalization.none,
+      cursorColor: KColors.persistentBlack,
+      decoration: InputDecoration(
+          labelStyle: KTextStyle.f16w6.copyWith(color: KColors.persistentBlack),
+          focusColor: Colors.white,
+          hintText: hintText,
+          hintStyle: const TextStyle(color: Colors.white),
+          //contentPadding: EdgeInsets.only(top: 5),
+          border: const UnderlineInputBorder(
+              borderSide: BorderSide(
+            color: Colors.white,
+          )),
+          focusedBorder: const UnderlineInputBorder(
+              borderSide: BorderSide(
+            color: KColors.persistentBlack,
+          )),
+          labelText: labelText,
+          suffixIcon: sufixIcon,
+          prefixIcon: prefixIcon),
+      onChanged: (value) => onChanged!(value),
+      onSaved: (value) => onSaved!(value!),
+      validator: (value) => validator!(value!),
+      textInputAction: action,
+    );
   }
 }

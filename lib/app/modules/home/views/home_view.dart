@@ -14,7 +14,6 @@ class HomeView extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: CustomScrollView(
-          physics: const BouncingScrollPhysics(),
           slivers: <Widget>[
             const CustomAppBar(),
             SliverFillRemaining(

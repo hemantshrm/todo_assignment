@@ -3,16 +3,16 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:todo_assignment/app/data/Services/local_storage_service.dart';
 
 import 'app/data/Constants/colors_constants.dart';
-import 'app/data/Utils/app_theme.dart';
 import 'app/routes/app_pages.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await GetStorage.init();
-
+  await Get.putAsync(() => LocalStorageService().init());
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
       overlays: [SystemUiOverlay.bottom, SystemUiOverlay.top]);
 
@@ -36,11 +36,9 @@ class MyApp extends StatelessWidget {
       designSize: const Size(414, 896),
       builder: (_, __) => GetMaterialApp(
           popGesture: GetPlatform.isAndroid ? false : true,
-          theme: customTheme,
+          // theme: customTheme,
+          defaultTransition: Transition.fade,
           initialRoute: AppPages.INITIAL,
-          // initialBinding: BindingsBuilder(() {
-          //   Get.put(RoleController(), permanent: true);
-          // }),
           getPages: AppPages.routes),
     );
   }

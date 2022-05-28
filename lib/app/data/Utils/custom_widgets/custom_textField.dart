@@ -21,6 +21,7 @@ class CustomTextField extends StatelessWidget {
   final int? maxLines;
   final String? initialValue;
   final String? hintText;
+
   final TextCapitalization? textCapitalization;
   const CustomTextField(
       {Key? key,
@@ -53,13 +54,15 @@ class CustomTextField extends StatelessWidget {
       maxLength: max,
       textDirection: direction,
       controller: controller,
+
       obscureText: obscure,
-      style: KTextStyle.f18w6.copyWith(color: KColors.white),
+      style: KTextStyle.f18w6.copyWith(color: KColors.persistentBlack),
       keyboardType: type,
       textCapitalization: textCapitalization ?? TextCapitalization.none,
       cursorColor: KColors.persistentBlack,
       decoration: InputDecoration(
-          labelStyle: KTextStyle.f16w6.copyWith(color: KColors.persistentBlack),
+        counterText: '',
+          labelStyle: KTextStyle.f16w6.copyWith(color: Colors.cyan),
           focusColor: Colors.white,
           hintText: hintText,
           hintStyle: const TextStyle(color: Colors.white),

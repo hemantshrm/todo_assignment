@@ -23,3 +23,4 @@ const errorMinDescription = "Description Must be 10 words";
 //App Strings
 const THEME = 'theme';
 const ANNOTATIONS = 'annotations';
+const USERS = 'users';

@@ -13,6 +13,18 @@ mixin InputValidationMixin {
     }
   }
 
+  String? passwordValidator(String? password) {
+    if (password!.isEmpty) {
+      return errorEnterPassword;
+    } else if (password.length < 6) {
+      return errorPasswordMinLength;
+    } else if (password.length > 15) {
+      return errorPasswordMaxLength;
+    } else {
+      return null;
+    }
+  }
+
   String? emptyTitle(String? value) {
     if (value!.isEmpty) {
       return errorEmpty;

@@ -19,6 +19,18 @@ dev_dependencies:
   flutter_test: 
     sdk: flutter
 
-flutter: 
+flutter:
+  assets:
+    - assets/font/
+    - assets/images/
+  fonts:
+    - family: CarmenSans
+      fonts:
+        - asset: assets/font/CarmenSans-Bold.ttf
+        - asset: assets/font/CarmenSans-Medium.ttf
+        - asset: assets/font/CarmenSans-Regular.ttf
+        - asset: assets/font/CarmenSans-SemiBold.ttf
+        - asset: assets/font/CarmenSans-Thin.ttf
+        - asset: assets/font/CarmenSans-Light.ttf
   uses-material-design: true
 

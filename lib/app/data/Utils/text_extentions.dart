@@ -7,7 +7,7 @@ extension ExtendedString on String {
   static const strFontFamily = "CarmenSans";
 
   Text f16w6(
-          {Color? textColor = KColors.white,
+          {Color? textColor = KColors.persistentBlack,
           TextAlign? textAlign = TextAlign.start,
           int? maxLines,
           FontWeight? fontWeight,
@@ -18,6 +18,39 @@ extension ExtendedString on String {
           maxLines: maxLines,
           overflow: overflow,
           style: KTextStyle.f16w6.copyWith(
+              color: textColor,
+              fontSize: fontSize,
+              fontWeight: fontWeight,
+              fontFamily: strFontFamily));
+
+  Text f24w5(
+          {Color? textColor = KColors.persistentBlack,
+          TextAlign? textAlign = TextAlign.start,
+          int? maxLines,
+          FontWeight? fontWeight,
+          double? fontSize,
+          TextOverflow? overflow}) =>
+      Text(this,
+          textAlign: textAlign,
+          maxLines: maxLines,
+          overflow: overflow,
+          style: KTextStyle.f24w5.copyWith(
+              color: textColor,
+              fontSize: fontSize,
+              fontWeight: fontWeight,
+              fontFamily: strFontFamily));
+  Text f18w6(
+          {Color? textColor = KColors.persistentBlack,
+          TextAlign? textAlign = TextAlign.start,
+          int? maxLines,
+          FontWeight? fontWeight,
+          double? fontSize,
+          TextOverflow? overflow}) =>
+      Text(this,
+          textAlign: textAlign,
+          maxLines: maxLines,
+          overflow: overflow,
+          style: KTextStyle.f18w6.copyWith(
               color: textColor,
               fontSize: fontSize,
               fontWeight: fontWeight,

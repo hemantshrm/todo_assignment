@@ -19,10 +19,10 @@ class CustomButton extends StatelessWidget {
       required this.onPressed,
       this.buttonText,
       this.icon,
-      this.buttonColor = KColors.red,
+      this.buttonColor = KColors.white,
       this.borderColor = Colors.transparent,
       this.fontWeight = FontWeight.w700,
-      this.textColor = KColors.white,
+      this.textColor = KColors.persistentBlack,
       this.fontSize = 16})
       : super(key: key);
 
@@ -60,9 +60,13 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
-        elevation: 0,
+        elevation: 3,
         enableFeedback: true,
-        shape: StadiumBorder(side: BorderSide(color: borderColor!)),
+        shape: RoundedRectangleBorder(
+            side: BorderSide(
+              color: borderColor!,
+            ),
+            borderRadius: BorderRadius.circular(10)),
         minWidth: double.infinity,
         height: getVerticalSize(57),
         onPressed: onPressed,

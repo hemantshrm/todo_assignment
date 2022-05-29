@@ -13,43 +13,43 @@ class BottomSheetAnnotation extends Container {
   BottomSheetAnnotation({Key? key, this.index}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: GlassmorphicContainer(
-          width: Get.width,
-          height: Get.height / 2,
-          borderRadius: 10,
-          blur: 10,
-          alignment: Alignment.bottomCenter,
-          border: 2,
-          linearGradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [
-                const Color(0xFF000000).withOpacity(0.2),
-                const Color(0xFFFFFFFF).withOpacity(0.05),
-              ],
-              stops: const [
-                0.1,
-                1,
-              ]),
-          borderGradient: LinearGradient(
+    return GlassmorphicContainer(
+        width: Get.width,
+        height: Get.height / 2,
+        borderRadius: 10,
+        blur: 10,
+        alignment: Alignment.bottomCenter,
+        border: 2,
+        linearGradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors: [
-              const Color(0xFFffffff).withOpacity(0.5),
-              Colors.black.withOpacity(0.6),
+              const Color(0xFF000000).withOpacity(0.2),
+              const Color(0xFFFFFFFF).withOpacity(0.05),
             ],
-          ),
-          child: Column(
-            children: [
-              Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: "Add TODO".f18w6(textColor: KColors.white)),
-              AddAnnotationForm(
+            stops: const [
+              0.1,
+              1,
+            ]),
+        borderGradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [
+            const Color(0xFFffffff).withOpacity(0.5),
+            Colors.black.withOpacity(0.6),
+          ],
+        ),
+        child: Column(
+          children: [
+            Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: "Add TODO".f18w6(textColor: KColors.white)),
+            Expanded(
+              child: AddAnnotationForm(
                 index: index,
-              )
-            ],
-          )),
-    );
+              ),
+            )
+          ],
+        ));
   }
 }

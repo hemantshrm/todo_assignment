@@ -4,6 +4,7 @@ import 'package:todo_assignment/app/data/Utils/custom_widgets/custom_button.dart
 import 'package:todo_assignment/app/data/Utils/custom_widgets/custom_textField.dart';
 import 'package:todo_assignment/app/data/Utils/custom_widgets/loader.dart';
 import 'package:todo_assignment/app/data/Utils/custom_widgets/show_messages.dart';
+import 'package:todo_assignment/app/data/Utils/math_util.dart';
 import 'package:todo_assignment/app/data/Utils/validators.dart';
 
 import '../controllers/home_controller.dart';
@@ -17,7 +18,7 @@ class AddAnnotationForm extends GetView<HomeController>
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+      padding: EdgeInsets.symmetric(horizontal: getHorizontalSize(20)),
       child: Form(
         key: controller.addTodoFormKey,
         autovalidateMode: AutovalidateMode.onUserInteraction,

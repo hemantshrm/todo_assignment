@@ -2,7 +2,6 @@
 class Assets {
   Assets._();
 
-  static const String imagesBg = 'assets/images/bg.jpg';
   static const String imagesCreateAccount = 'assets/images/create_account.svg';
   static const String imagesEmpty = 'assets/images/empty.svg';
 }

@@ -12,12 +12,12 @@ class Annotations {
     this.annotations,
   });
 
-  RxList<Rx<Annotation>>? annotations;
+  RxList<Rx<TodoModel>>? annotations;
 
   factory Annotations.fromJson(Map<String, dynamic> json) => Annotations(
         annotations: json["annotations"] != null
-            ? RxList<Rx<Annotation>>.from(
-                json["annotations"].map((x) => Annotation.fromJson(x).obs))
+            ? RxList<Rx<TodoModel>>.from(
+                json["annotations"].map((x) => TodoModel.fromJson(x).obs))
             : null,
       );
 
@@ -27,8 +27,8 @@ class Annotations {
       };
 }
 
-class Annotation {
-  Annotation(
+class TodoModel {
+  TodoModel(
       {this.title, this.date, this.check, this.description, this.category});
 
   String? title;
@@ -37,7 +37,7 @@ class Annotation {
   String? description;
   String? category;
 
-  factory Annotation.fromJson(Map<String, dynamic> json) => Annotation(
+  factory TodoModel.fromJson(Map<String, dynamic> json) => TodoModel(
         title: json["title"],
         date: json["date"],
         check: json["check"],

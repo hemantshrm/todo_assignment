@@ -25,8 +25,7 @@ class HomeView extends GetView<HomeController> {
                           itemCount:
                               controller.annotations.value.annotations!.length,
                           itemBuilder: (_, index) => ItemListWidget(index),
-                          separatorBuilder: (BuildContext context, int index) =>
-                              const Divider()))),
+                          separatorBuilder: (_, __) => const Divider()))),
             ),
           ],
         ),

@@ -25,7 +25,7 @@ class BottomSheetAnnotation extends Container {
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: [
-                const Color(0xFFffffff).withOpacity(0.1),
+                const Color(0xFF000000).withOpacity(0.2),
                 const Color(0xFFFFFFFF).withOpacity(0.05),
               ],
               stops: const [

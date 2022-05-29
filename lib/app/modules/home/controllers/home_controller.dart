@@ -29,8 +29,12 @@ class HomeController extends GetxController {
 
   /// GET TO_DOs
   getAnnotations() async {
-    Map ans = await appConfigService.box.read(ANNOTATIONS);
-    annotations.value.annotations = todoList(ans[ANNOTATIONS]);
+    if (appConfigService.box.read(ANNOTATIONS) != null) {
+      final Map ans = await appConfigService.box.read(ANNOTATIONS);
+      annotations.value.annotations = todoList(ans[ANNOTATIONS]);
+    } else {
+      annotations.value.annotations = RxList<Rx<TodoModel>>();
+    }
   }
 
   /// REMOVE TO_DO

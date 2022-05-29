@@ -5,8 +5,7 @@ import '../controllers/create_account_controller.dart';
 class CreateAccountBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<CreateAccountController>(
-      () => CreateAccountController(),
-    );
+    Get.lazyPut<CreateAccountController>(() => CreateAccountController(),
+        fenix: true);
   }
 }

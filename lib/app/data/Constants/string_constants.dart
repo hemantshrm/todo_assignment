@@ -24,3 +24,4 @@ const errorMinDescription = "Description Must be 10 words";
 const THEME = 'theme';
 const ANNOTATIONS = 'annotations';
 const USERS = 'users';
+const IS_LOGGED_IN = 'isLoggedIn';

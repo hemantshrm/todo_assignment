@@ -38,7 +38,7 @@ class SignupView extends GetView<SignupController> with InputValidationMixin {
               CustomTextField(
                 obscure: true,
                 initialValue: controller.password.value,
-                action: TextInputAction.next,
+                action: TextInputAction.done,
                 textCapitalization: TextCapitalization.words,
                 labelText: "PASSWORD",
                 validator: passwordValidator,

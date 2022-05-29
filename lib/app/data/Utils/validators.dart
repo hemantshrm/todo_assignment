@@ -1,5 +1,3 @@
-import 'package:get/get.dart';
-
 import '../Constants/string_constants.dart';
 
 mixin InputValidationMixin {
@@ -41,13 +39,12 @@ mixin InputValidationMixin {
     }
   }
 
-  String? userNameValidator(String? userName) {
-    if (userName!.isEmpty) {
+  String? emptyField(String? value) {
+    if (value!.isEmpty) {
       return errorEmpty;
-    } else if (!GetUtils.isUsername(userName)) {
-      return errorEnterName;
+    } else {
+      return null;
     }
-    return null;
   }
 
   String? phoneNumberValidator(String number) {

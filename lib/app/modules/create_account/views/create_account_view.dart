@@ -34,7 +34,7 @@ class CreateAccountView extends GetView<CreateAccountController> {
                 .f16w6(),
             CustomSpacers.height60,
             CustomButton(
-              onPressed: () => Get.toNamed(Routes.HOME),
+              onPressed: () => Get.toNamed(Routes.LOGIN),
               buttonText: 'Login',
             ),
             CustomSpacers.height20,

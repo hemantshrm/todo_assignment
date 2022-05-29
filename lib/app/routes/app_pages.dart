@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 
+import '../modules/create_account/Middleware/check_auth_redirect.dart';
 import '../modules/create_account/bindings/create_account_binding.dart';
 import '../modules/create_account/views/create_account_view.dart';
 import '../modules/home/bindings/home_binding.dart';
@@ -19,22 +20,23 @@ class AppPages {
   static final routes = [
     GetPage(
       name: _Paths.SIGNUP,
-      page: () => SignupView(),
+      page: () => const SignupView(),
       binding: SignupBinding(),
     ),
     GetPage(
       name: _Paths.LOGIN,
-      page: () => LoginView(),
+      page: () => const LoginView(),
       binding: LoginBinding(),
     ),
     GetPage(
       name: _Paths.HOME,
-      page: () => HomeView(),
+      page: () => const HomeView(),
       binding: HomeBinding(),
     ),
     GetPage(
       name: _Paths.CREATE_ACCOUNT,
-      page: () => CreateAccountView(),
+      middlewares: [AuthMiddleWare()],
+      page: () => const CreateAccountView(),
       binding: CreateAccountBinding(),
     ),
   ];

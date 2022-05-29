@@ -12,6 +12,11 @@ class LocalStorageService extends GetxService {
   }
 
   late GetStorage box;
+
+  saveIsLoggedIn() async => await box.write(IS_LOGGED_IN, true);
+
+  Future<bool> isLoggedIn() async => await box.read(IS_LOGGED_IN) ?? false;
+
   bool getTheme() => box.read(THEME);
   changeTheme(b) async {
     Get.changeTheme(b ? ThemeData.dark() : ThemeData.light());

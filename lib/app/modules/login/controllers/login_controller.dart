@@ -37,16 +37,20 @@ class LoginController extends GetxController {
   onLogin() async {
     if (loginFormKey.currentState!.validate()) {
       //  final userList = await localStorage.box.read(USERS);
-      for (var element in userList) {
-        if (element.phone == loginPhoneNo.value &&
-            element.pass == loginPass.value) {
-          Get.offNamed(Routes.HOME);
-          localStorage.saveIsLoggedIn();
-        } else if (element.pass != loginPass.value) {
-          customSnackbar("Incorrect Password", isError: true);
-        } else {
-          customSnackbar("Sorry, User Not found", isError: true);
+      if (userList.isNotEmpty) {
+        for (var element in userList) {
+          if (element.phone == loginPhoneNo.value &&
+              element.pass == loginPass.value) {
+            Get.offNamed(Routes.HOME);
+            localStorage.saveIsLoggedIn();
+          } else if (element.pass != loginPass.value) {
+            customSnackbar("Incorrect Password", isError: true);
+          } else {
+            customSnackbar("Sorry, User Not found", isError: true);
+          }
         }
+      } else {
+        customSnackbar('No User Found, Please Register First', isError: true);
       }
     }
   }
